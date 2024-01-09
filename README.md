@@ -42,7 +42,7 @@ To use the webpage:
 
 ## Credits
 
-The EdEx Web Development bootcamp team provided the boilerplate HTML code and images used in this project: https://skillsforlife.edx.org/enroll/ui/signIn
+The EdEx Web Development bootcamp team provided the HTML code, the starter javascript code (including the array sets) and the css code. Visit their website at https://skillsforlife.edx.org/enroll/ui/signIn
 
 ## License
 

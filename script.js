@@ -131,8 +131,34 @@ function getPasswordOptions() { //This section of code serves to ascertain the c
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {
+function getRandom(passwordGen) { // This function takes the "passwordGen" object as an argument. It will refer to the various key-value pairs to perform it's function.
 
+    // Declare empty arrays to be used as repositories for possible collections of string elements.
+    var arr = [];
+    var arrLower = [];
+    var arrUpper = [];
+    var arrNumeric = [];
+    var arrSpecial = [];
+
+    // Saparate IF blocks that potentially (if that specific type was selected i.e. "true" by the user) assign the respective collections of array elements to their respective empty arrays.
+    if (passwordGen.lowerCase == true) {
+        arrLower = arr.concat(lowerCasedCharacters)
+    }
+    if (passwordGen.upperCase == true) {
+        arrUpper = arr.concat(upperCasedCharacters)
+    }
+    if (passwordGen.numericChar == true) {
+        arrNumeric = arr.concat(numericCharacters)
+    }
+    if (passwordGen.specialChar == true) {
+        arrSpecial = arr.concat(specialCharacters)
+    }
+
+    arr = arrLower.concat(arrUpper).concat(arrNumeric).concat(arrSpecial); // Assign the total number of array elements to the "arr" array. Only the the ones with something inside them (from the IF blocks, above) will be consequential.
+
+    var getRandomElement = arr[Math.floor(Math.random() * arr.length)] //Select a random element from the "arr" array.
+
+    return getRandomElement //Return the random element.
 }
 
 // Function to generate password with user input

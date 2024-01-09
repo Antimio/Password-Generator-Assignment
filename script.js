@@ -179,15 +179,16 @@ function generatePassword(passwordGen) { //This function takes the "passwordGen"
 }
 
 // Get references to the #generate element
-var generateBtn = document.querySelector('#generate');
+var generateBtn = document.querySelector('#generate'); //This line seems to select the element with the ID "generate" into the "generateBtn" variable.
 
 // Write password to the #password input
-function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector('#password');
+function writePassword() { //This function kickstarts the program.
+    var passwordGen = getPasswordOptions(); // The "getPasswordOptions" function is triggered and it's returned value (an object with the user's option selections) is stored in the "passwordGen" variable.
+    var password = generatePassword(passwordGen); // The "passwordGen" object is entered as an argument into the "generatePassword" function; and the result (a password or a message of the type string) is stored in the "password" variable.
+    var passwordText = document.querySelector('#password'); // This line seems to select the box where the password will be displayed.
 
-    passwordText.value = password;
+    passwordText.value = password; // This line assigns the value of password to the element selected by "paswordText".
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+generateBtn.addEventListener('click', writePassword); //This line make it so that the function "writePassword" is triggered when button with the ID "generate" is clicked.

@@ -162,7 +162,19 @@ function getRandom(passwordGen) { // This function takes the "passwordGen" objec
 }
 
 // Function to generate password with user input
-function generatePassword() {
+function generatePassword(passwordGen) { //This function takes the "passwordGen" object as an argument.
+
+    if (passwordGen.passwordLength === null || passwordGen.passwordLength < 8 || passwordGen.passwordLength > 128) { //Let the user know that they need to follow the rules if they want the app to work properly.
+        return "Please enter valid options as instructed. Press the Generate Password button again!";
+    }
+
+    var password = ""; // Declare a variable; which will be used to store the output to be presented to the user.
+
+    for (let index = 0; index < passwordGen.passwordLength; index++) { //Loop through the "getRandom" function as many times as the password length chosen by the user (passwordGen is an object carrying that information).
+        password = password.concat(getRandom(passwordGen)) //Each time the loop runs, the random character obrained from the getRandom function will be concatenated to the "password" variable.
+    }
+
+    return password // The final product (a password composed of the selected elements and of the chosen lenght) is returned; and will in turn, be presented to the user through the "writePassword" function.
 
 }
 
